@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Random TikTok</title>
+
+    <!--Import Google Icon Font-->
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Let browser know website is optimized for mobile-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel='shortcut icon' type='image/x-icon' href='logo.png' />
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        html {
+            background-color: black;
+            overflow: hidden;
+        }
+
+        #ttbutton {
+            width: 100vw;
+            height: 100vh;
+            font-weight: bold;
+            font-size: xx-large;
+            background-color: black;
+            color: white;
+            text-shadow: 3px 2px 3px #ff0050, 3px -2px 3px #00f2ea;
+            border: 0.4vw solid #ff0050;
+        }
+
+        #ttbutton:before {
+            content: " ";
+            position: absolute;
+            top: 0.4vw;
+            left: 0.4vw;
+            right: 0.4vw;
+            bottom: 0.4vw;
+            border: 0.4vw solid #00f2ea;
+        }
+
+        #ttbutton:hover {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <button id='ttbutton'>🤯Click anywhere for random TikTok, reload for a new one🤯</button>
+
+    <script async src="https://www.tiktok.com/embed.js"></script>
+    <script>
+        const chars = [
+            '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
+            'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J',
+            'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T',
+            'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e',
+            'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p',
+            'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'
+        ];
+        const linkBase = 'https://vm.tiktok.com/';
+
+        window.addEventListener('load', (e) => {
+            let randomLink = '';
+
+            for (let i = 9; i > 0; i--) {
+                randomLink += chars[Math.floor(Math.random() * 61)];
+            }
+
+            document.getElementById('ttbutton').addEventListener('click', (e) => {
+                window.open(linkBase + randomLink + '/');
+            });
+        });
+    </script>
+</body>
+
+</html>
